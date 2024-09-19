@@ -34,18 +34,16 @@ func startServer() {
 }
 
 func main() {
-	go startServer() // Inicia el servidor en un goroutine
+	go startServer()
 
-	// Espera para que el servidor arranque
 	fmt.Println("Esperando 10 segundos para que el servidor se inicie...")
 	time.Sleep(10 * time.Second)
 
-	// Realiza las pruebas
 	testEndpoints()
 }
 
 func testEndpoints() {
-	// Prueba para el endpoint "/"
+
 	resp, err := http.Get("http://localhost:8080/")
 	if err != nil {
 		log.Fatalf("Error al hacer solicitud: %v", err)
@@ -55,7 +53,6 @@ func testEndpoints() {
 		log.Fatalf("Error en el endpoint /: Código de estado %v, Cuerpo: %s", resp.StatusCode, body)
 	}
 
-	// Prueba para el endpoint "/hello"
 	resp, err = http.Get("http://localhost:8080/hello")
 	if err != nil {
 		log.Fatalf("Error al hacer solicitud: %v", err)
