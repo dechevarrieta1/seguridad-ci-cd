@@ -27,8 +27,12 @@ jobs:
     - name: Build
       run: go build -v ./...
 
-    - name: Run server
+    - name: Run server and tests
       run: |
         nohup go run main.go > server.log 2>&1 &
         sleep 10
+        go run test.go
         cat server.log
+
+    - name: Check server log
+      run: cat server.log
