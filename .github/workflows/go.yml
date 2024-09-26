@@ -33,12 +33,9 @@ jobs:
     - name: Test
       run: go test -cover ./...
 
-    - name: Test by step
-      run: go test -v ./... 
-
     - name: Run server
       env: 
-        SEGURIDAD_URL: ${{ secrets.SEGURIDAD_URL }}
+        SEGURIDAD_URL: ${{ env.SEGURIDAD_URL }}
       run: |
         nohup go run main.go > server.log 2>&1 &
         sleep 10
