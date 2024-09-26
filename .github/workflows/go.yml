@@ -31,7 +31,10 @@ jobs:
     - name: Test
       run: go test -cover ./...
 
-    - name: Run server and tests
+    - name: Test by step
+      run: go test -v ./... 
+
+    - name: Run server
       run: |
         nohup go run main.go > server.log 2>&1 &
         sleep 10
