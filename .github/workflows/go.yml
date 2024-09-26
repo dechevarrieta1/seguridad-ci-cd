@@ -23,8 +23,6 @@ jobs:
 
     - name: Install dependencies
       run: |
-        go mod init myproject
-        go get github.com/valyala/fasthttp
         go mod tidy
 
     - name: Build
