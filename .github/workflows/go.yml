@@ -13,7 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     environment: production
-  
+    env: 
+      SEGURIDAD_URL: ${{ secrets.SEGURIDAD_URL }}
+      echo: ${{ secrets.SEGURIDAD_URL }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -35,7 +38,7 @@ jobs:
 
     - name: Run server
       env: 
-        SEGURIDAD_URL: ${{ env.SEGURIDAD_URL }}
+        SEGURIDAD_URL: ${{ secrets.SEGURIDAD_URL }}
       run: |
         nohup go run main.go > server.log 2>&1 &
         sleep 10
