@@ -14,9 +14,6 @@ jobs:
 
     environment: test
   
-    env: 
-      SEGURIDAD_URL: ${{ secrets.SEGURIDAD_URL }}
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -43,6 +40,8 @@ jobs:
       run: |
         nohup go run main.go > server.log 2>&1 &
         sleep 10
-              
+      env: 
+        SEGURIDAD_URL: ${{ secrets.SEGURIDAD_URL }}
+
     - name: Check server log
       run: cat server.log
