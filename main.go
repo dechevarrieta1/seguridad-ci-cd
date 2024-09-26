@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"os"
 	"seguridad-cicd/internal/v1/handlers"
@@ -10,6 +11,7 @@ import (
 var seguridadURL = os.Getenv("SEGURIDAD_URL")
 
 func main() {
+	log.Println("Starting the application...")
 	var client httphelpers.HTTPClient = &http.Client{}
 
 	handlers.ExecuteHandlers(client, seguridadURL)
