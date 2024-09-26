@@ -1,20 +1,26 @@
 package handlers
 
 import (
+	"encoding/json"
 	"log"
+	"seguridad-cicd/internal/v1/models"
 	httphelpers "seguridad-cicd/pkg/http"
 	"time"
 )
 
 func ExecuteHandlers(client httphelpers.HTTPClient, seguridadURL string) {
-
+	alumno := models.Alumno{
+		Nombre:   "Juan",
+		Apellido: "Sanchez",
+	}
+	dataReq, _ := json.Marshal(alumno)
 	MakeRequest(client, "GET", seguridadURL+"/health", nil)
 
 	MakeRequest(client, "GET", seguridadURL+"/alumnos", nil)
 
-	MakeRequest(client, "POST", seguridadURL+"/alumno", []byte{})
+	MakeRequest(client, "POST", seguridadURL+"/alumno", dataReq)
 
-	MakeRequest(client, "POST", seguridadURL+"/accounts/create", []byte{})
+	// MakeRequest(client, "POST", seguridadURL+"/accounts/create", []byte{})
 
 	time.Sleep(20 * time.Second)
 }
