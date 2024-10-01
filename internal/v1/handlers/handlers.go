@@ -18,9 +18,8 @@ func ExecuteHandlers(client httphelpers.HTTPClient, seguridadURL string) {
 
 	MakeRequest(client, "GET", seguridadURL+"/alumnos", nil)
 
+	//This action returns an error
 	MakeRequest(client, "POST", seguridadURL+"/alumno", dataReq)
-
-	// MakeRequest(client, "POST", seguridadURL+"/accounts/create", []byte{})
 
 	time.Sleep(20 * time.Second)
 }

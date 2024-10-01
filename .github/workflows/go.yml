@@ -15,8 +15,7 @@ jobs:
     environment: production
     env: 
       SEGURIDAD_URL: ${{ secrets.SEGURIDAD_URL }}
-      echo: ${{ secrets.SEGURIDAD_URL }}
-
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
