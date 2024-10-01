@@ -11,7 +11,7 @@ import (
 var seguridadURL = os.Getenv("SEGURIDAD_URL")
 
 func main() {
-	log.Println("Starting the application...")
+	log.Println("Starting the application..1")
 	var client httphelpers.HTTPClient = &http.Client{}
 
 	handlers.ExecuteHandlers(client, seguridadURL)
