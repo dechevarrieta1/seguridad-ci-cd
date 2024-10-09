@@ -1,9 +1,9 @@
 ### Pasos de ejecución del código
 
-1.1 Se realiza la ejecución del main
-1.2 Se llama a la ejecución de todos los handlers hacia la url definida por variables de entorno
-1.3 Se loggean todas las respuestas ya sean de éxito u error
-1.4 Finaliza el programa
+1.1 Se realiza la ejecución del main.
+1.2 Se llama a la ejecución de todos los handlers hacia la url definida por variables de entorno.
+1.3 Se loggean todas las respuestas ya sean de éxito u error.
+1.4 Finaliza el programa.
 
 ### Pasos de ejecución del CICD
 1.1 "Checkout code": Este paso utiliza la acción actions/checkout@v3 para clonar el repositorio en la máquina virtual de GitHub Actions.
